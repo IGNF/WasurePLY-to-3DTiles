@@ -1,0 +1,9 @@
+name: wasureply-to-3dtiles
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - py3dtiles
+      # Add additional pip dependencies here
