@@ -6,9 +6,7 @@ RUN apt-get update &&  apt-get install -y git libpq-dev gcc libgl1-mesa-dev libg
 
 WORKDIR /app
 
-# RUN conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main && \
-#     conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
-    
+
 # Create the conda environment
 COPY environment.yml .
 RUN conda env create -f environment.yml && \
@@ -20,7 +18,7 @@ RUN /opt/conda/envs/mesh23Dtile/bin/pip uninstall -y py3dtiles && \
         "py3dtiles @ git+https://gitlab.com/py3dtiles/py3dtiles@v9.0.0"
 
 # Copy application code
-COPY mesh23dtile.py octree.py finalize.py run.sh __init__.py ./
+COPY mesh23dtile.py octree.py finalize.py run.sh ./
 
 RUN chmod +x run.sh
 
